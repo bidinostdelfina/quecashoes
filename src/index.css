@@ -1,0 +1,991 @@
+/* =========================================================
+   QUECA SHOES — index.css
+   Estilo: Soft Boutique 🌼
+========================================================= */
+
+
+/* =========================
+   1. VARIABLES
+========================= */
+:root {
+  /* Fondos */
+  --fondo: #fbf7ee;
+  --fondo-seccion: #f5edda;
+  --fondo-card: #ffffff;
+  --fondo-imagen: #faf5e8;
+  --fondo-footer: #2a2620;
+
+  /* Textos */
+  --texto: #1a1a1a;
+  --texto-secundario: #6e6558;
+  --texto-suave: #a39a89;
+  --texto-footer: #d8cfc0;
+
+  /* Acento (mostaza del logo) */
+  --acento: #e8b84b;
+  --acento-hover: #d4a032;
+  --acento-suave: #f7ecd0;
+
+  /* Detalle secundario */
+  --salvia: #8b9d77;
+
+  /* Bordes */
+  --borde: #e8dfc8;
+  --borde-fuerte: #c9bda0;
+
+  /* Sombras */
+  --sombra-suave: 0 4px 14px rgba(110, 101, 88, 0.06);
+  --sombra-card: 0 2px 8px rgba(110, 101, 88, 0.05);
+  --sombra-hover: 0 14px 36px rgba(110, 101, 88, 0.15);
+
+  /* Radios */
+  --radio: 8px;
+  --radio-pill: 999px;
+
+  /* Transiciones */
+  --transicion: 0.25s ease;
+}
+
+
+/* =========================
+   2. RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* =========================
+   3. BASE
+========================= */
+body {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section[id],
+main[id] {
+  scroll-margin-top: 100px;
+}
+
+
+/* =========================
+   4. HEADER
+========================= */
+.header {
+  height: 96px;
+  padding: 0 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--fondo);
+  border-bottom: 1px solid var(--borde);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 78px;
+  width: auto;
+  display: block;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.header nav a {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--texto);
+  position: relative;
+  transition: color var(--transicion);
+}
+
+.header nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: var(--acento);
+  transform: translateX(-50%);
+  transition: width var(--transicion);
+}
+
+.header nav a:hover {
+  color: var(--acento-hover);
+}
+
+.header nav a:hover::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-button,
+.cart-button {
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid var(--borde);
+  border-radius: 50%;
+  background: transparent;
+
+  color: var(--texto-secundario);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  transition: all var(--transicion);
+}
+
+.search-button:hover,
+.cart-button:hover {
+  border-color: var(--acento);
+  background: var(--acento-suave);
+  color: var(--texto);
+}
+
+.search-button svg,
+.cart-button svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  transition: transform var(--transicion);
+}
+
+.search-button:hover svg,
+.cart-button:hover svg {
+  transform: scale(1.1);
+}
+
+.cart-button small {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+  background: var(--acento);
+  color: var(--texto);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   5. HERO
+========================= */
+.hero {
+  min-height: 560px;
+  padding: 90px 10%;
+
+  background: linear-gradient(
+    180deg,
+    var(--fondo) 0%,
+    #f7eed8 100%
+  );
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+
+  border-bottom: 1px solid var(--borde);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.hero-small,
+.section-small {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--acento-hover);
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+
+  font-size: clamp(52px, 6.5vw, 92px);
+  line-height: 1;
+  letter-spacing: -1px;
+
+  color: var(--texto);
+  margin-bottom: 26px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--acento-hover);
+}
+
+.hero-text {
+  font-size: 17px;
+  color: var(--texto-secundario);
+  margin-bottom: 38px;
+  max-width: 460px;
+  line-height: 1.6;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  background: var(--texto);
+  color: var(--fondo);
+
+  padding: 16px 32px;
+  border-radius: var(--radio-pill);
+
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  transition: background var(--transicion), transform var(--transicion);
+}
+
+.hero-button:hover {
+  background: var(--acento-hover);
+  color: var(--texto);
+  transform: translateY(-2px);
+}
+
+.hero-button span {
+  font-size: 15px;
+  transition: transform var(--transicion);
+}
+
+.hero-button:hover span {
+  transform: translateX(4px);
+}
+
+.hero-decoration {
+  position: absolute;
+
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 480px;
+  max-width: 42vw;
+
+  opacity: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-decoration img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 45px rgba(110, 101, 88, 0.18));
+}
+
+
+/* =========================
+   6. SECCIONES
+========================= */
+.section {
+  padding: 100px 10%;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 44px;
+  gap: 24px;
+}
+
+.section-header h2,
+.brands-title h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: 52px;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  color: var(--texto);
+}
+
+.see-more-button {
+  border: 1px solid var(--borde-fuerte);
+  background: transparent;
+  color: var(--texto);
+
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  padding: 12px 22px;
+  border-radius: var(--radio-pill);
+
+  transition: all var(--transicion);
+}
+
+.see-more-button:hover {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: var(--texto);
+}
+
+
+/* =========================
+   7. PRODUCTOS
+========================= */
+.products-grid,
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.product-card {
+  background: var(--fondo-card);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+
+  box-shadow: var(--sombra-card);
+  transition: transform var(--transicion), box-shadow var(--transicion),
+    border-color var(--transicion);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--borde-fuerte);
+  box-shadow: var(--sombra-hover);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  background: var(--fondo-imagen);
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 1px solid var(--borde);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  padding: 22px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 22px 20px 20px;
+  text-align: center;
+}
+
+/* Marca en mostaza, mayúscula, con aire */
+.product-brand {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--acento-hover);
+  margin-bottom: 8px;
+}
+
+/* Modelo en sans-serif, con presencia */
+.product-info h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+/* Precio en negro fuerte */
+.product-price {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--texto);
+  margin-bottom: 18px;
+  letter-spacing: 0.3px;
+}
+
+.product-button {
+  width: 100%;
+  padding: 13px;
+
+  background: transparent;
+  border: 1px solid var(--texto);
+  border-radius: var(--radio-pill);
+
+  color: var(--texto);
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  transition: all var(--transicion);
+}
+
+.product-button:hover {
+  background: var(--texto);
+  color: var(--fondo);
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  padding: 70px 20px;
+  text-align: center;
+  color: var(--texto-secundario);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-style: italic;
+}
+
+
+/* =========================
+   8. MARCAS
+========================= */
+.brands-section {
+  padding: 100px 10%;
+  background: var(--fondo-seccion);
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.brands-title p:not(.section-small) {
+  max-width: 320px;
+  margin-top: 18px;
+
+  color: var(--texto-secundario);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.brand-card {
+  min-height: 100px;
+  padding: 24px;
+
+  background: var(--fondo-card);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--texto);
+
+  box-shadow: var(--sombra-card);
+  transition: all var(--transicion);
+}
+
+.brand-card:hover {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: var(--texto);
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-suave);
+}
+
+.brand-arrow {
+  font-size: 18px;
+  transition: transform var(--transicion);
+}
+
+.brand-card:hover .brand-arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================
+   9. CATÁLOGO
+========================= */
+.catalog-section {
+  padding: 100px 10%;
+}
+
+.catalog-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.catalog-filters--secondary {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.filter-label {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  margin-right: 8px;
+}
+
+.catalog-filters button {
+  border: 1px solid var(--borde-fuerte);
+  background: transparent;
+  color: var(--texto);
+
+  padding: 9px 20px;
+  border-radius: var(--radio-pill);
+
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  transition: all var(--transicion);
+}
+
+.catalog-filters button:hover {
+  border-color: var(--acento-hover);
+  color: var(--acento-hover);
+}
+
+.catalog-filters button.active {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.catalog-filters button.active:hover {
+  background: var(--acento-hover);
+  border-color: var(--acento-hover);
+  color: var(--texto);
+}
+
+.results-count {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--texto-secundario);
+  margin-bottom: 24px;
+}
+
+.catalog-grid {
+  margin-top: 0;
+}
+
+
+/* =========================
+   10. WHATSAPP
+========================= */
+.whatsapp {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+
+  background: #25d366;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 200;
+
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.whatsapp svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.whatsapp:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+}
+
+
+/* =========================
+   11. FOOTER
+========================= */
+footer {
+  min-height: 180px;
+  padding: 44px 10%;
+
+  background: var(--fondo-footer);
+  color: var(--texto-footer);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+
+footer p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--texto-footer);
+  letter-spacing: 1px;
+}
+
+
+/* =========================
+   12. RESPONSIVE
+========================= */
+
+/* ---------- Tablet (≤ 1000px) ---------- */
+@media (max-width: 1000px) {
+  .header {
+    padding: 0 5%;
+  }
+
+  .header nav {
+    gap: 22px;
+  }
+
+  .header nav a {
+    font-size: 15px;
+  }
+
+  .hero {
+    padding: 70px 7%;
+  }
+
+  .hero-decoration {
+    width: 340px;
+    max-width: 38vw;
+    right: 2%;
+  }
+
+  .section,
+  .catalog-section,
+  .brands-section {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .products-grid,
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brands-section {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-header h2,
+  .brands-title h2 {
+    font-size: 42px;
+  }
+}
+
+/* ---------- Mobile (≤ 650px) ---------- */
+@media (max-width: 650px) {
+  .header {
+    height: auto;
+    padding: 14px 5%;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .logo {
+    height: 58px;
+  }
+
+  .header nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .header nav a {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+
+  .header nav a::after {
+    display: none;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .search-button,
+  .cart-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .search-button svg,
+  .cart-button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero {
+    min-height: 480px;
+    padding: 60px 6%;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+  }
+
+  .hero-decoration {
+    width: 240px;
+    max-width: 55vw;
+    right: -40px;
+    opacity: 0.4;
+  }
+
+  .section,
+  .catalog-section {
+    padding: 70px 5%;
+  }
+
+  .section-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+
+  .section-header h2,
+  .brands-title h2 {
+    font-size: 38px;
+  }
+
+  .products-grid,
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .product-image img {
+    padding: 14px;
+  }
+
+  .product-info {
+    padding: 16px 12px 14px;
+  }
+
+  .product-brand {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .product-info h3 {
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .product-button {
+    font-size: 9px;
+    padding: 11px;
+    letter-spacing: 2px;
+  }
+
+  .brands-section {
+    padding: 70px 5%;
+    display: block;
+  }
+
+  .brands-title {
+    margin-bottom: 36px;
+  }
+
+  .brands-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .brand-card {
+    min-height: 76px;
+    padding: 16px;
+    font-size: 15px;
+  }
+
+  .catalog-filters {
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+
+  .catalog-filters--secondary {
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    border-bottom: none;
+  }
+
+  .catalog-filters button {
+    font-size: 10px;
+    padding: 8px 15px;
+  }
+
+  .filter-label {
+    width: 100%;
+    margin-bottom: 4px;
+    margin-right: 0;
+  }
+
+  .results-count {
+    font-size: 16px;
+  }
+
+  .whatsapp {
+    width: 52px;
+    height: 52px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .whatsapp svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  footer {
+    padding: 36px 5%;
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .footer-logo {
+    height: 80px;
+  }
+}
